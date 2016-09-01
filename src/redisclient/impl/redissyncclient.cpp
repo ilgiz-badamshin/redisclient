@@ -246,7 +246,9 @@ RedisValue RedisSyncClient::command(const std::string &cmd, const std::list<std:
 
 bool RedisSyncClient::stateValid() const
 {
+#ifdef DEBUG
     assert( pimpl->state == RedisClientImpl::Connected );
+#endif
 
     if( pimpl->state != RedisClientImpl::Connected )
     {
